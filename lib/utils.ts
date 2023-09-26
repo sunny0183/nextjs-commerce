@@ -9,3 +9,5 @@ export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyUR
 
 export const ensureStartsWith = (stringToCheck: string, startsWith: string) =>
   stringToCheck.startsWith(startsWith) ? stringToCheck : `${startsWith}${stringToCheck}`;
+
+export const EdgeOrNode = () => (process.env.NODE_ENV == 'production' ? 'edge' : 'nodejs');

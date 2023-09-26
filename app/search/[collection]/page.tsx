@@ -5,8 +5,9 @@ import { notFound } from 'next/navigation';
 import Grid from 'components/grid';
 import ProductGridItems from 'components/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
+import { EdgeOrNode } from 'lib/utils';
 
-export const runtime = 'edge';
+export const runtime = EdgeOrNode();
 
 export async function generateMetadata({
   params
