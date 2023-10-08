@@ -34,6 +34,7 @@ module.exports = {
     hoverOnlyWhenSupported: true
   },
   plugins: [
+    //require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/container-queries'),
     require('@tailwindcss/typography'),
     plugin(({ matchUtilities, theme }) => {

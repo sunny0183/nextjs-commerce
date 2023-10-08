@@ -1,6 +1,8 @@
 import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
+import PromoWithImage from 'components/promo-with-image';
+import PromoWithImageTiles from 'components/promo-with-image-tiles';
 import { EdgeOrNode } from 'lib/utils';
 import { Suspense } from 'react';
 
@@ -16,6 +18,8 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
+      <PromoWithImageTiles />
+      <PromoWithImage />
       <ThreeItemGrid />
       <Suspense>
         <Carousel />
