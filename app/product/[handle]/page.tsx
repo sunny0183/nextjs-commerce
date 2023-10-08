@@ -9,9 +9,10 @@ import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
+import { EdgeOrNode } from 'lib/utils';
 import Link from 'next/link';
 
-export const runtime = 'edge';
+export const runtime = EdgeOrNode();
 
 export async function generateMetadata({
   params
