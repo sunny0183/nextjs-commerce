@@ -1,6 +1,5 @@
 import { getCollection, getCollectionProducts } from 'lib/shopify';
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 import Grid from 'components/grid';
 import ProductGridItems from 'components/layout/product-grid-items';
@@ -15,7 +14,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const collection = await getCollection(params.collection);
 
-  if (!collection) return notFound();
+  if (!collection)
+    return {
+      title: 'collection.seo?.title || collection.title',
+      description:
+        'collection.seo?.description || collection.description || `${collection.title} products`'
+    }; //notFound();
 
   return {
     title: collection.seo?.title || collection.title,
@@ -34,7 +38,7 @@ export default async function CategoryPage({
   const { sort } = searchParams as { [key: string]: string };
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
   const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse });
-
+  console.log({ collection: params.collection, sortKey, reverse });
   return (
     <section>
       {products.length === 0 ? (
